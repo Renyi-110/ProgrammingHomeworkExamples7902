@@ -127,26 +127,30 @@ public class FruitStand { //UpperCamelCase for class name
             System.out.print("Enter a " + category + " name (or 'done' to finish): ");
             String input = scanner.nextLine().trim().toLowerCase();
             if (input.equals("done")) 
-            break;
-
+                break;
+    
             index = findItemIndex(items, input);
             if (index == -1) {
                 System.out.println("Invalid " + category + ". Please try again.");
                 continue;
             }
-
-            System.out.print("Enter quantity of " + input + ": ");
-            try {
-                int quantity = Integer.parseInt(scanner.nextLine());
-                if (quantity < 0) {
-                    System.out.println("Quantity cannot be negative.");
-                    continue;
+    
+            while (true) {
+                System.out.print("Enter quantity of " + input + ": ");
+                try {
+                    int quantity = Integer.parseInt(scanner.nextLine());
+                    if (quantity < 0) {
+                        System.out.println("Quantity cannot be negative. Please try again.");
+                        continue;
+                    }
+                    quantities[index] += quantity;
+                    break; // Exit the quantity loop after valid input
+                } catch (NumberFormatException e) {
+                    System.out.println("Please enter a valid number.");
                 }
-                quantities[index] += quantity;
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number.");
             }
         }
+    
     }
 
     // Finds the index of an item in the menu based on its name Functional-type method, it returns a value
