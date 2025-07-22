@@ -1,3 +1,7 @@
+// This is a more simple solution compared to the FruitStand.java file
+// I didn't comment as much, so refer to the FruitStand.java file for more details
+
+
 import java.util.Scanner;
 
 public class FruitStandNoArraysOrMethods {

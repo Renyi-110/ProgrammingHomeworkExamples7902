@@ -1,3 +1,42 @@
+/**
+ * Created by Yixin Ren for U1Lesson1 Homework Answers on team 7902
+ * Date: 2024-07-22
+ * 
+ * The FruitStand class simulates a fruit and drink stand where users can place orders,
+ * view a menu, and receive a receipt for their purchases. It supports multiple orders
+ * and allows users to exit at any time.
+ * 
+ * Features:
+ * - Displays a menu of fruits and drinks with their prices.
+ * - Allows users to order items by name and specify quantities.
+ * - Generates a receipt showing purchased items, quantities, and total cost.
+ * - Supports multiple orders and exits gracefully when requested.
+ * 
+ * Usage:
+ * - Run the program and follow the prompts to place orders.
+ * - Type "exit" to quit the program.
+ * - Type "done" when finished ordering items in a category.
+ * 
+ * Methods:
+ * - main: Entry point of the program. Handles the main loop for user interaction.
+ * - printMenu: Displays the menu for a given category (fruits or drinks).
+ * - askYesNo: Prompts the user with a yes/no question and returns the response.
+ * - orderItems: Handles the ordering process for a specific category (fruits or drinks).
+ * - findItemIndex: Finds the index of an item in the menu based on its name.
+ * - printReceipt: Generates and displays a receipt for the purchased items.
+ * 
+ * Variables:
+ * - fruitPrices, drinkPrices: Arrays storing the prices of fruits and drinks.
+ * - fruitNames, drinkNames: Arrays storing the names of fruits and drinks.
+ * - fruitQuantities, drinkQuantities: Arrays storing the quantities of purchased items.
+ * - total: Total cost of the order.
+ * - cost: Cost of each item in the receipt.
+ * - scanner: Scanner object for user input.
+ * 
+ * Note:
+ * - Prices are stored as doubles to handle decimal values.
+ * - Input validation is implemented to ensure valid responses from the user.
+ */
 import java.util.Scanner;
 public class FruitStand { //UpperCamelCase for class name
 
