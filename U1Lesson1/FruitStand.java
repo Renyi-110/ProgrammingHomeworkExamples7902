@@ -96,6 +96,7 @@ public class FruitStand { //UpperCamelCase for class name
         }
 
         System.out.println("Thank you for visiting Yixin's Fruit Stand!");
+        scanner.close(); // Close the scanner to release resources
     }
 
     // Prints the menu for a given category (fruits or drinks) Procedural-type method
