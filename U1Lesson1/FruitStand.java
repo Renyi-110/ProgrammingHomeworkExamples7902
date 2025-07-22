@@ -17,6 +17,7 @@ public class FruitStand { //UpperCamelCase for class name
         // Quantities
         int[] fruitQuantities = new int[5];
         int[] drinkQuantities = new int[5];
+        int index = 0;
 
         System.out.println("Welcome to Yixin's Fruit Stand!");
 
@@ -38,12 +39,12 @@ public class FruitStand { //UpperCamelCase for class name
 
             // Order fruits
             if (askYesNo("Would you like to buy fruits? (yes/no): ")) {
-                orderItems("fruit", fruitNames, fruitPrices, fruitQuantities);
+                orderItems("fruit", fruitNames, fruitPrices, fruitQuantities, index);
             }
 
             // Order drinks
             if (askYesNo("Would you like to buy drinks? (yes/no): ")) {
-                orderItems("drink", drinkNames, drinkPrices, drinkQuantities);
+                orderItems("drink", drinkNames, drinkPrices, drinkQuantities, index);
             }
 
             // Show receipt
@@ -74,14 +75,14 @@ public class FruitStand { //UpperCamelCase for class name
     }
 
     // Orders items for a specific category (fruits or drinks) Functional-type method, it returns a value
-    public static void orderItems(String category, String[] items, double[] prices, int[] quantities) {
+    public static void orderItems(String category, String[] items, double[] prices, int[] quantities, int index) {
         while (true) {
             System.out.print("Enter a " + category + " name (or 'done' to finish): ");
             String input = scanner.nextLine().trim().toLowerCase();
             if (input.equals("done")) 
             break;
 
-            int index = findItemIndex(items, input);
+            index = findItemIndex(items, input);
             if (index == -1) {
                 System.out.println("Invalid " + category + ". Please try again.");
                 continue;
