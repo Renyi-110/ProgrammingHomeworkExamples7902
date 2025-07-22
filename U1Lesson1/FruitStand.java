@@ -37,15 +37,15 @@ public class FruitStand { //UpperCamelCase for class name
             printMenu(fruitNames, fruitPrices, "Fruits");
             printMenu(drinkNames, drinkPrices, "Drinks");
 
-            // Order fruits
+            
             if (askYesNo("Would you like to buy fruits? (yes/no): ")) {
-                orderItems("fruit", fruitNames, fruitPrices, fruitQuantities, index);
+                    orderItems("fruit", fruitNames, fruitPrices, fruitQuantities, index);
             }
 
-            // Order drinks
+           
             if (askYesNo("Would you like to buy drinks? (yes/no): ")) {
-                orderItems("drink", drinkNames, drinkPrices, drinkQuantities, index);
-            }
+                    orderItems("drink", drinkNames, drinkPrices, drinkQuantities, index);
+                }
 
             // Show receipt
             total = printReceipt(fruitNames, fruitPrices, fruitQuantities, drinkNames, drinkPrices, drinkQuantities, cost, total);
@@ -69,9 +69,17 @@ public class FruitStand { //UpperCamelCase for class name
 
     // Asks a yes/no question and returns true for "yes", false for "no" Functional-type method, it returns a value
     public static boolean askYesNo(String prompt) {
-        System.out.print(prompt);
-        String response = scanner.nextLine().trim().toLowerCase();
-        return response.equals("yes");
+        while (true) {
+            System.out.print(prompt);
+            String response = scanner.nextLine().trim().toLowerCase();
+            if (response.equals("yes")) {
+                return true;
+            } else if (response.equals("no")) {
+                return false;
+            } else {
+                System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+            }
+        }
     }
 
     // Orders items for a specific category (fruits or drinks) Functional-type method, it returns a value

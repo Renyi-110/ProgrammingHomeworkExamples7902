@@ -50,59 +50,87 @@ public class FruitStandNoArraysOrMethods {
             System.out.println("coke - $1.25");
             System.out.println("milk - $2.00");
 
-            System.out.print("\nWould you like to buy fruits? (yes/no): ");
-            String fruitAnswer = scanner.nextLine().trim().toLowerCase();
-            if (fruitAnswer.equals("yes")) {
-                while (true) {
-                    System.out.print("Enter fruit name (or type 'done'): ");
-                    String fruit = scanner.nextLine().trim().toLowerCase();
+            boolean validInput = false;
 
-                    if (fruit.equals("done")) break;
+            // Handle fruits
+            while (!validInput) {
+                try {
+                    System.out.print("\nWould you like to buy fruits? (yes/no): ");
+                    String fruitAnswer = scanner.nextLine().trim().toLowerCase();
+                    if (fruitAnswer.equals("yes")) {
+                        validInput = true;
+                        while (true) {
+                            System.out.print("Enter fruit name (or type 'done'): ");
+                            String fruit = scanner.nextLine().trim().toLowerCase();
 
-                    System.out.print("Enter quantity: ");
-                    int qty = Integer.parseInt(scanner.nextLine());
+                            if (fruit.equals("done")) break;
 
-                    if (fruit.equals("apple")) {
-                        appleQty += qty;
-                    } else if (fruit.equals("banana")) {
-                        bananaQty += qty;
-                    } else if (fruit.equals("pear")) {
-                        pearQty += qty;
-                    } else if (fruit.equals("peach")) {
-                        peachQty += qty;
-                    } else if (fruit.equals("dragonfruit")) {
-                        dragonfruitQty += qty;
+                            System.out.print("Enter quantity: ");
+                            int qty = Integer.parseInt(scanner.nextLine());
+
+                            if (fruit.equals("apple")) {
+                                appleQty += qty;
+                            } else if (fruit.equals("banana")) {
+                                bananaQty += qty;
+                            } else if (fruit.equals("pear")) {
+                                pearQty += qty;
+                            } else if (fruit.equals("peach")) {
+                                peachQty += qty;
+                            } else if (fruit.equals("dragonfruit")) {
+                                dragonfruitQty += qty;
+                            } else {
+                                System.out.println("Invalid fruit name.");
+                            }
+                        }
+                    } else if (fruitAnswer.equals("no")) {
+                        validInput = true;
                     } else {
-                        System.out.println("Invalid fruit name.");
+                        throw new IllegalArgumentException("Invalid input. Please enter 'yes' or 'no'.");
                     }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
             }
 
-            System.out.print("\nWould you like to buy drinks? (yes/no): ");
-            String drinkAnswer = scanner.nextLine().trim().toLowerCase();
-            if (drinkAnswer.equals("yes")) {
-                while (true) {
-                    System.out.print("Enter drink name (or type 'done'): ");
-                    String drink = scanner.nextLine().trim().toLowerCase();
+            validInput = false;
 
-                    if (drink.equals("done")) break;
+            // Handle drinks
+            while (!validInput) {
+                try {
+                    System.out.print("\nWould you like to buy drinks? (yes/no): ");
+                    String drinkAnswer = scanner.nextLine().trim().toLowerCase();
+                    if (drinkAnswer.equals("yes")) {
+                        validInput = true;
+                        while (true) {
+                            System.out.print("Enter drink name (or type 'done'): ");
+                            String drink = scanner.nextLine().trim().toLowerCase();
 
-                    System.out.print("Enter quantity: ");
-                    int qty = Integer.parseInt(scanner.nextLine());
+                            if (drink.equals("done")) break;
 
-                    if (drink.equals("water")) {
-                        waterQty += qty;
-                    } else if (drink.equals("lemonade")) {
-                        lemonadeQty += qty;
-                    } else if (drink.equals("sprite")) {
-                        spriteQty += qty;
-                    } else if (drink.equals("coke")) {
-                        cokeQty += qty;
-                    } else if (drink.equals("milk")) {
-                        milkQty += qty;
+                            System.out.print("Enter quantity: ");
+                            int qty = Integer.parseInt(scanner.nextLine());
+
+                            if (drink.equals("water")) {
+                                waterQty += qty;
+                            } else if (drink.equals("lemonade")) {
+                                lemonadeQty += qty;
+                            } else if (drink.equals("sprite")) {
+                                spriteQty += qty;
+                            } else if (drink.equals("coke")) {
+                                cokeQty += qty;
+                            } else if (drink.equals("milk")) {
+                                milkQty += qty;
+                            } else {
+                                System.out.println("Invalid drink name.");
+                            }
+                        }
+                    } else if (drinkAnswer.equals("no")) {
+                        validInput = true;
                     } else {
-                        System.out.println("Invalid drink name.");
+                        throw new IllegalArgumentException("Invalid input. Please enter 'yes' or 'no'.");
                     }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
             }
 
@@ -170,7 +198,5 @@ public class FruitStandNoArraysOrMethods {
 
         System.out.println("Thanks for shopping with us!");
         scanner.close();
-        
     }
-    
 }
